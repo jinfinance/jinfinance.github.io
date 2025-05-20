@@ -1,29 +1,33 @@
-name: Deploy Hugo site to GitHub Pages
+name: Build and Deploy Hugo site
 
 on:
   push:
     branches:
-      - main  # Or your default branch
-  workflow_dispatch: 
-
+      - main
 
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout repo
+      uses: actions/checkout@v3
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: 'latest'
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v4
+      with:
+        hugo-version: 'latest'
 
-      - name: Build
-        run: hugo --minify
+    - name: Build Hugo site
+      run: hugo --minify
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+    - name: Deploy to main branch root
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+        publish_branch: main   # Push generated site to main branch root
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        keep_files: false
+
