@@ -1,4 +1,4 @@
-baseURL = "https://github.com/jinfinance/jinfinance.github.io"
+baseURL = "https://jinfinance.github.io"
 #baseURL = "http://localhost:1313/"
 
 languageCode = "en-us"
