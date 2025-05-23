@@ -5,4 +5,146 @@
 &lt;p>I&amp;rsquo;m NOT SO excited to share my work and ideas here.&lt;/p></description><content:encoded><![CDATA[<p>Hello! This is my first post on my new Hugo-powered GitHub Pages website.</p>
 <p>I&rsquo;m NOT SO excited to share my work and ideas here.</p>
 ]]></content:encoded></item><item><title>My First Post</title><link>https://jinfinance.github.io/posts/first-post/</link><pubDate>Mon, 19 May 2025 00:00:00 +0000</pubDate><guid>https://jinfinance.github.io/posts/first-post/</guid><description>&lt;p>Hello world! This is my first blog post using Hugo + PaperMod!&lt;/p></description><content:encoded>&lt;p>Hello world! This is my first blog post using Hugo + PaperMod!&lt;/p>
-</content:encoded></item></channel></rss>
+</content:encoded></item><item><title/><link>https://jinfinance.github.io/posts/container/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jinfinance.github.io/posts/container/</guid><description>&lt;h2 id="install-wsl">Install WSL&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Log in as admin PowerShell (need to request).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Run the command:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>wsl --install
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://learn.microsoft.com/en-us/windows/wsl/setup/environment">https://learn.microsoft.com/en-us/windows/wsl/setup/environment&lt;/a>&lt;br>
+might also need to separately install linux Distro&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>. wsl.exe --list --online &lt;span style="color:#f92672">(&lt;/span>pick the version you like&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>. wsl.exe --install Ubuntu-24.04
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>if run into: &lt;strong>Logon failure: the user has not been granted the requested logon type at this computer.&lt;/strong> try the following:&lt;/p>
+&lt;ul>
+&lt;li>Search (Windows) for and open &amp;ldquo;Turn Windows features on or off&amp;rdquo;&lt;/li>
+&lt;li>Check the box next to Hyper-V&lt;/li>
+&lt;li>Restart your system&lt;/li>
+&lt;li>Try 2) again&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="install-apptainer-singularity-in-wsl">Install Apptainer (Singularity) in WSL&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>wsl (open a terminal)&lt;/p></description><content:encoded><![CDATA[<h2 id="install-wsl">Install WSL</h2>
+<ol>
+<li>
+<p>Log in as admin PowerShell (need to request).</p>
+</li>
+<li>
+<p>Run the command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wsl --install  
+</span></span></code></pre></div><p><a href="https://learn.microsoft.com/en-us/windows/wsl/setup/environment">https://learn.microsoft.com/en-us/windows/wsl/setup/environment</a><br>
+might also need to separately install linux Distro</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>. wsl.exe  --list --online <span style="color:#f92672">(</span>pick the version you like<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>. wsl.exe  --install Ubuntu-24.04 
+</span></span></code></pre></div></li>
+<li>
+<p>if run into: <strong>Logon failure: the user has not been granted the requested logon type at this computer.</strong>   try the following:</p>
+<ul>
+<li>Search (Windows) for and open &ldquo;Turn Windows features on or off&rdquo;</li>
+<li>Check the box next to Hyper-V</li>
+<li>Restart your system</li>
+<li>Try 2) again</li>
+</ul>
+</li>
+</ol>
+<h2 id="install-apptainer-singularity-in-wsl">Install Apptainer (Singularity) in WSL</h2>
+<ol>
+<li>
+<p>wsl (open a terminal)</p>
+</li>
+<li>
+<p>Run this command</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update <span style="color:#f92672">&amp;&amp;</span> sudo apt install -y <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    build-essential <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    libseccomp-dev <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    pkg-config <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    squashfs-tools <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    cryptsetup <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    uidmap <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    git <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    wget <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    curl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    gnupg <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    lzip <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    tar  
+</span></span></code></pre></div></li>
+<li>
+<p>Install Go (required for Apptainer)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://go.dev/dl/go1.24.3.linux-amd64.tar.gz
+</span></span></code></pre></div><p>(if run into issue, go to: <a href="https://go.dev/dl/">https://go.dev/dl/</a>, and click on download), and
+it will be saved at: /mnt/c/Users/YourUserID/Downloads</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo tar -C /usr/local -xzf go1.24.3.linux-amd64.tar.gz
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export PATH=$PATH:/usr/local/go/bin&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>source ~/.bashrc
+</span></span></code></pre></div></li>
+<li>
+<p>Install Apptainer (Singularity)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export VERSION<span style="color:#f92672">=</span>1.4.1 <span style="color:#75715e"># or the latest</span>
+</span></span><span style="display:flex;"><span>wget <span style="color:#ae81ff">\ </span>https://github.com/apptainer/apptainer/releases/download/v<span style="color:#e6db74">${</span>VERSION<span style="color:#e6db74">}</span>/apptainer-<span style="color:#e6db74">${</span>VERSION<span style="color:#e6db74">}</span>.tar.gz  
+</span></span><span style="display:flex;"><span>tar -xzf apptainer-<span style="color:#e6db74">${</span>VERSION<span style="color:#e6db74">}</span>.tar.gz  
+</span></span><span style="display:flex;"><span>or  
+</span></span><span style="display:flex;"><span>tar --no-same-owner --no-same-permissions  -xzf apptainer-<span style="color:#e6db74">${</span>VERSION<span style="color:#e6db74">}</span>.tar.   
+</span></span><span style="display:flex;"><span><span style="color:#f92672">(</span>might get a lot of tar errors, even it says fail in the end, just ignore them<span style="color:#f92672">)</span>  
+</span></span></code></pre></div><p><strong>you might need to do the following steps in your &rsquo;native  WSL file system&rsquo;</strong>, for example your home drive, and then copy the apptainer-${VERSION}
+there and do the following:</p>
+<pre tabindex="0"><code>cd apptainer-${VERSION}
+./mconfig &amp;&amp; \
+    make -C builddir &amp;&amp; \
+    sudo make -C builddir install
+</code></pre></li>
+<li>
+<p>Build the sif image</p>
+<pre tabindex="0"><code>apptainer build  mycontainer.sif  mycontainer.def
+</code></pre></li>
+</ol>
+<h2 id="docker---install-and-convert-singularity-sif-image-to-oci">DOCKER - install and convert singularity sif image to OCI</h2>
+<ol>
+<li>
+<p>install Docker Desktop &ndash;need Admin access (password), (after DSL2 installation, so that Docker and WSL 2 are integrated)</p>
+<p><a href="https://docs.docker.com/desktop/features/wsl/">https://docs.docker.com/desktop/features/wsl/</a></p>
+</li>
+<li>
+<p>Add your user to the docker group</p>
+<pre tabindex="0"><code>sudo usermod -aG docker $USER
+</code></pre><p>restart WSL and verify docker run works by:</p>
+<pre tabindex="0"><code>docker run hello-world
+</code></pre></li>
+<li>
+<p>Convert .sif → Docker (OCI)</p>
+<ul>
+<li>
+<p>Use apptainer build to convert .sif to a sandbox (directory)</p>
+<pre tabindex="0"><code>apptainer build --sandbox hmas2_sandbox hmas2.sif
+</code></pre></li>
+<li>
+<p>Use Docker to import the sandbox into an image</p>
+<pre tabindex="0"><code>cd hmas2_sandbox
+tar -c . | docker import - hmas2:latest
+</code></pre></li>
+<li>
+<p>Verify Docker image</p>
+<pre tabindex="0"><code>docker images
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<h2 id="docker---build-oci-from-scratch-assume-docker-already-installed">DOCKER - build OCI from scratch (assume docker already installed)</h2>
+<ol>
+<li>
+<p>need the Dockerfile (similar to singularity/apptainer def file). If you have available the binary files of your packages, try avoid using conda to slim down image size.</p>
+<pre tabindex="0"><code>docker build -t jinfinance/hmas2:v1.1 -f Dockerfile.hmas.v1.1  .
+</code></pre><p>in the folder where all necessary binary files and Dockerfile exist. (<em>jinfinance/hmas2</em>  is your DockerHub repository name, and <em>Dockerfile.hmas.v1.1</em> is your Dockerfile name. And the dot at the end represents the current folder)</p>
+</li>
+<li>
+<p>push to Docker Hub</p>
+<pre tabindex="0"><code>docker push jinfinance/hmas2:v1.1
+</code></pre></li>
+</ol>
+]]></content:encoded></item></channel></rss>
