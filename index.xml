@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Welcome to My Personal Site on My Personal Site</title><link>https://jinfinance.github.io/</link><description>Recent content in Welcome to My Personal Site on My Personal Site</description><generator>Hugo -- 0.147.3</generator><language>en-us</language><lastBuildDate>Fri, 23 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jinfinance.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Using Containers with WSL, Apptainer, and Docker</title><link>https://jinfinance.github.io/posts/container/</link><pubDate>Fri, 23 May 2025 00:00:00 +0000</pubDate><guid>https://jinfinance.github.io/posts/container/</guid><description>&lt;h2 id="install-wsl">Install WSL&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Welcome to My Personal Site on Pain is inevitable, suffering is optional.</title><link>https://jinfinance.github.io/</link><description>Recent content in Welcome to My Personal Site on Pain is inevitable, suffering is optional.</description><generator>Hugo -- 0.147.3</generator><language>en-us</language><lastBuildDate>Fri, 23 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jinfinance.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Using Containers with WSL, Apptainer, and Docker</title><link>https://jinfinance.github.io/posts/container/</link><pubDate>Fri, 23 May 2025 00:00:00 +0000</pubDate><guid>https://jinfinance.github.io/posts/container/</guid><description>&lt;h2 id="install-wsl">Install WSL&lt;/h2>
 &lt;ol>
 &lt;li>
 &lt;p>Log in as admin PowerShell (need to request).&lt;/p>
@@ -97,10 +97,10 @@ there and do the following:</p>
 <pre tabindex="0"><code>apptainer build  mycontainer.sif  mycontainer.def
 </code></pre></li>
 </ol>
-<h2 id="docker---install-and-convert-singularity-sif-image-to-oci">DOCKER - install and convert singularity sif image to OCI</h2>
+<h2 id="docker--docker-desktop---install-and-convert-singularity-sif-image-to-oci">DOCKER / Docker Desktop - install and convert singularity sif image to OCI</h2>
 <ol>
 <li>
-<p>install Docker Desktop &ndash;need Admin access (password), (after DSL2 installation, so that Docker and WSL 2 are integrated)</p>
+<p>install Docker Desktop &ndash;need Admin access (password), (after WSL2 installation, so that Docker and WSL2 are integrated)</p>
 <p><a href="https://docs.docker.com/desktop/features/wsl/">https://docs.docker.com/desktop/features/wsl/</a></p>
 </li>
 <li>
