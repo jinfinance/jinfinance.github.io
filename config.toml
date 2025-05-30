@@ -2,13 +2,22 @@ baseURL = "https://jinfinance.github.io/"
 #baseURL = "http://localhost:1313/"
 
 languageCode = "en-us"
-title = "My Personal Site"
+title = "Pain is inevitable, suffering is optional. "
 theme = "PaperMod"
 
 [params]
-  author = "Your Name"
+  author = "R.J."
   ShowReadingTime = true
   defaultTheme = "auto"
+  ShowCodeCopyButtons = true
+  ShowToc = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowShareButtons = true
+  ShowWordCount = true
+  ShowFullTextinRSS = true
+  comments = true
+  hideFooter = false
 
 [menu]
   [[menu.main]]
@@ -21,3 +30,15 @@ theme = "PaperMod"
     url = "/posts/"
     weight = 2
 
+[params.assets]
+  customCSS = ["css/custom.css"]
+
+[params.profileMode]
+  enabled = true
+  title = "RJ's Site"
+  subtitle = "Bioinformatics. Reproducibility. Science."
+  imageUrl = "images/angkor_wat.png"  # Place image in /static/images/
+
+[params.homeInfoParams]
+  Title = "Welcome to My Site"
+  Content = "A bioinformatician's corner for tools, notes, and thoughts."
