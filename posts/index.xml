@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Pain is inevitable, suffering is optional.</title><link>https://jinfinance.github.io/posts/</link><description>Recent content in Posts on Pain is inevitable, suffering is optional.</description><generator>Hugo -- 0.147.3</generator><language>en-us</language><lastBuildDate>Fri, 23 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jinfinance.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Using Containers with WSL, Apptainer, and Docker</title><link>https://jinfinance.github.io/posts/container/</link><pubDate>Fri, 23 May 2025 00:00:00 +0000</pubDate><guid>https://jinfinance.github.io/posts/container/</guid><description>&lt;h2 id="install-wsl">Install WSL&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Pain is inevitable, suffering is optional.</title><link>https://jinfinance.github.io/posts/</link><description>Recent content in Posts on Pain is inevitable, suffering is optional.</description><generator>Hugo -- 0.147.3</generator><language>en-us</language><lastBuildDate>Tue, 10 Jun 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://jinfinance.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Build and Push Docker Images to GitHub Container Registry (GHCR)</title><link>https://jinfinance.github.io/posts/ghcr/</link><pubDate>Tue, 10 Jun 2025 00:00:00 +0000</pubDate><guid>https://jinfinance.github.io/posts/ghcr/</guid><description>&lt;h2 id="-overview">📦 Overview&lt;/h2>
+&lt;p>This guide explains how to build a Docker image and push it to the GitHub Container Registry (GHCR). It also covers how to make the image public and compatible with tools like Singularity/Apptainer.&lt;/p>
+&lt;hr>
+&lt;h2 id="-prerequisites">🧱 Prerequisites&lt;/h2>
+&lt;ul>
+&lt;li>A GitHub account&lt;/li>
+&lt;li>Docker installed&lt;/li>
+&lt;li>A &lt;code>Dockerfile&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="-step-1-log-in-to-ghcr">🔐 Step 1: Log in to GHCR&lt;/h2>
+&lt;p>You can log in using your GitHub username and a &lt;a href="https://github.com/settings/tokens">Personal Access Token (PAT)&lt;/a> with &lt;code>write:packages&lt;/code> scope:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>echo &amp;lt;PAT&amp;gt; | docker login ghcr.io -u YOUR_USERNAME --password-stdin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote>
+&lt;p>Replace &lt;code>&amp;lt;PAT&amp;gt;&lt;/code> with your actual GitHub PAT. This is more secure than typing it interactively.&lt;/p></description><content:encoded><![CDATA[<h2 id="-overview">📦 Overview</h2>
+<p>This guide explains how to build a Docker image and push it to the GitHub Container Registry (GHCR). It also covers how to make the image public and compatible with tools like Singularity/Apptainer.</p>
+<hr>
+<h2 id="-prerequisites">🧱 Prerequisites</h2>
+<ul>
+<li>A GitHub account</li>
+<li>Docker installed</li>
+<li>A <code>Dockerfile</code></li>
+</ul>
+<hr>
+<h2 id="-step-1-log-in-to-ghcr">🔐 Step 1: Log in to GHCR</h2>
+<p>You can log in using your GitHub username and a <a href="https://github.com/settings/tokens">Personal Access Token (PAT)</a> with <code>write:packages</code> scope:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo &lt;PAT&gt; | docker login ghcr.io -u YOUR_USERNAME --password-stdin
+</span></span></code></pre></div><blockquote>
+<p>Replace <code>&lt;PAT&gt;</code> with your actual GitHub PAT. This is more secure than typing it interactively.</p></blockquote>
+<hr>
+<h2 id="-step-2-build-the-docker-image">🏗️ Step 2: Build the Docker Image</h2>
+<p>Make sure you&rsquo;re in the directory with your desired <code>Dockerfile</code>. If you have multiple Dockerfiles, specify the right one:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build -f Dockerfile.mytool -t ghcr.io/YOUR_USERNAME/your-image-name:latest .
+</span></span></code></pre></div><blockquote>
+<p>Replace <code>YOUR_USERNAME</code> with your GitHub username and adjust the tag name accordingly.</p></blockquote>
+<hr>
+<h2 id="-step-3-push-to-ghcr">📤 Step 3: Push to GHCR</h2>
+<p>By default, Docker uses <a href="https://docs.docker.com/engine/security/trust/">Docker Content Trust</a>, which adds metadata some tools (like Singularity) don&rsquo;t support. To disable that:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>DOCKER_CONTENT_TRUST<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> docker push ghcr.io/YOUR_USERNAME/your-image-name:latest
+</span></span></code></pre></div><hr>
+<h2 id="-step-4-make-the-image-public">🔓 Step 4: Make the Image Public</h2>
+<ol>
+<li>Go to <a href="https://github.com/users/YOUR_USERNAME/packages">https://github.com/users/YOUR_USERNAME/packages</a></li>
+<li>Click the image name (e.g., <code>your-image-name</code>)</li>
+<li>Go to <strong>Package Settings</strong></li>
+<li>Scroll to <strong>&ldquo;Danger Zone&rdquo;</strong> and set visibility to <strong>Public</strong></li>
+</ol>
+<hr>
+<h2 id="-step-5-test-locally">🧪 Step 5: Test Locally</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker pull ghcr.io/YOUR_USERNAME/your-image-name:latest
+</span></span><span style="display:flex;"><span>docker run --rm ghcr.io/YOUR_USERNAME/your-image-name:latest
+</span></span></code></pre></div><p>Add <code>-v</code> for volume mounts or <code>-it</code> for interactive shells if needed.</p>
+<h2 id="-related-links">🔗 Related Links</h2>
+<ul>
+<li><a href="https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry">GitHub Container Registry Docs</a></li>
+</ul>
+]]></content:encoded></item><item><title>Using Containers with WSL, Apptainer, and Docker</title><link>https://jinfinance.github.io/posts/container/</link><pubDate>Fri, 23 May 2025 00:00:00 +0000</pubDate><guid>https://jinfinance.github.io/posts/container/</guid><description>&lt;h2 id="install-wsl">Install WSL&lt;/h2>
 &lt;ol>
 &lt;li>
 &lt;p>Log in as admin PowerShell (need to request).&lt;/p>
